@@ -1,0 +1,39 @@
+{
+  "name": "gatsby-source-podcast-rss-feed",
+  "version": "0.1.0",
+  "description": "Gatsby source plugin to make episode metadata from a podcast rss feed available in GraphQL queries.",
+  "author": "Dan Miller",
+  "private": false,
+  "license": "MIT",
+  "homepage": "https://github.com/miller-productions/gatsby-source-podcast-rss-feed#readme",
+  "bugs": "https://github.com/miller-productions/gatsby-source-podcast-rss-feed/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miller-productions/gatsby-source-podcast-rss-feed.git"
+  },
+  "scripts": {
+    "build": "babel src --out-dir . --ignore __tests__",
+    "prepare": "cross-env NODE_ENV=production npm run build"
+  },
+  "keywords": [
+    "gatsby podcast",
+    "gatsby podcast feed",
+    "gatsby plugin podcast",
+    "gatsby source podcast",
+    "gatsby plugin podcast feed",
+    "gatsby source podcast feed"
+  ],
+  "dependencies": {
+    "rss-parser": "^3.7.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-preset-gatsby-package": "^0.2.15",
+    "cross-env": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-podcast-rss-feed",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.1",
   "description": "Gatsby source plugin to make episode metadata from a podcast rss feed available in GraphQL queries.",
   "author": "Dan Miller",
   "private": false,

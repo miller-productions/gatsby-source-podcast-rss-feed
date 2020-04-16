@@ -21,6 +21,7 @@ module.exports = {
         resolve: `gatsby-source-podcast-rss-feed`,
         options: {
           feedURL: `https://some.url/yourpodcastfeed.rss`,
+          id: 'guid',
         },
     },
   ],
@@ -29,7 +30,15 @@ module.exports = {
 
 ## Options
 
+### feedURL
 Set `feedURL` to a live podcast rss feed.
+
+### id
+Optional.
+
+Determines which field in the given feedURL, within the podcast episode entries, to use as a unique id / key for each episode.
+
+Defaults to using `link` if you don't include it here in the options.
 
 ## Querying
 

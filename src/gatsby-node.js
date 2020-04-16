@@ -1,18 +1,20 @@
+import merge from "lodash/merge"
+import defaultOptions from "./default-options"
+
 const Parser = require("rss-parser")
 
 exports.sourceNodes = async (
   { actions, createNodeId, createContentDigest },
-  configOptions
+  pluginOptions
 ) => {
   const { createNode } = actions
+  const options = merge(defaultOptions, pluginOptions)
 
-  delete configOptions.plugins
-
-  const { feedURL } = configOptions
+  const { feedURL } = options
   const feed = await parseURL(feedURL)
 
   feed.items.forEach(item => {
-    const nodeId = item.link
+    const nodeId = item[options.id]
     const type = `podcastRssFeedEpisode`
     const description = `This node represents an individual podcast episode from the provided podcast rss feed.`
     createNode({
@@ -30,8 +32,8 @@ exports.sourceNodes = async (
   return
 }
 
-exports.onPreBootstrap = ({ reporter }, configOptions) => {
-  const { feedURL } = configOptions
+exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
+  const { feedURL } = pluginOptions
 
   if (!feedURL) {
     reporter.panic(`Required plugin config option "feedURL" missng.`)
